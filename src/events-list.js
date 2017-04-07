@@ -1,6 +1,10 @@
 import React from 'react';
 
 export default function EventsList({ events, onEventSelected }) {
+  if (!events) {
+      return (<div className="loading">Buscando eventos...</div>);
+  }
+
   const listItems = events.map(event => {
     return (
       <li key={event.id} className="nav-item">

@@ -20,7 +20,7 @@ class App extends Component {
     super();
 
     this.state = {
-      events: [],
+      events: null,
       selectedEvent: null
     };
 
@@ -30,7 +30,6 @@ class App extends Component {
   componentDidMount() {
     get(DATASOURCE_URL)
       .then(response => {
-        console.log(response.data);
         const events = response.data.DailyMotion
           .filter(channel => channel.cid === '35')
           .map(channel => {
