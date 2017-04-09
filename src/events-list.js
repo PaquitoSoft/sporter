@@ -2,7 +2,11 @@ import React from 'react';
 
 export default function EventsList({ events, onEventSelected }) {
   if (!events) {
-      return (<div className="loading">Buscando eventos...</div>);
+      return (<div className="message">Buscando eventos...</div>);
+  }
+
+  if (!events.length) {
+    return (<div className="message">No hay eventos disponibles</div>)
   }
 
   const listItems = events.map(event => {
